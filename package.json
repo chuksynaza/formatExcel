@@ -1,0 +1,17 @@
+{
+  "name": "format",
+  "version": "1.0.0",
+  "description": "Format our Excel Docs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "excel"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "exceljs": "^0.8.2"
+  }
+}
