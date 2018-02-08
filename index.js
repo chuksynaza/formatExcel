@@ -2,17 +2,30 @@ var Excel = require('exceljs');
 
 var workbook = new Excel.Workbook();
 
+var workbooknew = new Excel.Workbook();
+
+var outPutSheet = workbooknew.addWorksheet('Output');
+// use workbook
+
+var errorLogSheet = workbooknew.addWorksheet('Error Log');
+
+errorLogSheet.addRow(["What Happened", "Who Caused It", "Where Did it Happen"]);
+
+
+var inputFile = "../ExcelFiles/file1.xlsx";
+
+var outPutFile = "../ExcelFiles/newfile1.xlsx";
+
 
 
 
 
 console.log("App is running");
 
-var filename = "../ExcelFiles/file1.xlsx";
-workbook.xlsx.readFile(filename).then(function() {
 
-	var outPutSheet = workbook.addWorksheet('Output');
-        // use workbook
+workbook.xlsx.readFile(inputFile).then(function() {
+
+
 
         var mcc_fees = workbook.getWorksheet('MCC & FEES');
 
@@ -110,11 +123,22 @@ workbook.xlsx.readFile(filename).then(function() {
 
             			
             		}
+            		else {
+            			//Log error that the respective MCC was not found
+            			var outPutLog = ["MCC not found", thisMcc , "The MCC and FEES sheet"];
+            			errorLogSheet.addRow(outPutLog);
+            		}
 
             	
 
 
 
+            	}
+            	else {
+            		//Log error that the TID was not found
+
+            		var outPutLog = ["TID not found", thisTid , "The TID and MCC reference sheet"];
+            		errorLogSheet.addRow(outPutLog);
             	}
 
             	
@@ -155,8 +179,8 @@ console.log("finished bomb read through");
        // console.log(tmcc["2011177Y"]);
 
        // write to a file
-       //var workbooknew = createAndFillWorkbook();
-       workbook.xlsx.writeFile("../ExcelFiles/newfile1.xlsx")
+
+       workbooknew.xlsx.writeFile(outPutFile)
            .then(function() {
                // done
                console.log("finished update");
