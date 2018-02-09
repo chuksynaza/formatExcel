@@ -1,0 +1,34 @@
+[0209/133801.510:FATAL:v8_initializer.cc(173)] Failed to open V8 file 'C:\Users\Chuksy Olisa\Documents\code\test\natives_blob.bin' (reason: -4)
+Backtrace:
+	v8::internal::compiler::BasicBlock::set_deferred [0x00007FF8E0E1FA64+11524]
+	GetHandleVerifier [0x00007FF8E0DB6E03+41859]
+	v8::internal::compiler::Reducer::Replace [0x00007FF8E24647F2+105410]
+	v8::internal::compiler::Reducer::Replace [0x00007FF8E24648EA+105658]
+	v8::internal::ParserBase<v8::internal::Parser>::set_stack_limit [0x00007FF8E0CBCD15+865973]
+	v8::internal::ParserBase<v8::internal::Parser>::set_stack_limit [0x00007FF8E0CD30CB+957035]
+	v8::internal::ParserBase<v8::internal::Parser>::set_stack_limit [0x00007FF8E0CBC916+864950]
+	ChromeMain [0x00007FF8DF7711C3+299]
+	(No symbol) [0x00007FF60B8C2FFA]
+	(No symbol) [0x00007FF60B8C1698]
+	IsSandboxedProcess [0x00007FF60B9AB483+379779]
+	BaseThreadInitThunk [0x00007FF936EA8364+20]
+	RtlUserThreadStart [0x00007FF9372A7091+33]
+
+[0209/133801.819:ERROR:http_transport_win.cc(175)] WinHttpCrackUrl: The URL does not use a recognized protocol (0x2ee6)
+[0209/133947.652:FATAL:v8_initializer.cc(173)] Failed to open V8 file 'C:\Users\Chuksy Olisa\Documents\code\test\natives_blob.bin' (reason: -4)
+Backtrace:
+	v8::internal::compiler::BasicBlock::set_deferred [0x00007FF8E0E1FA64+11524]
+	GetHandleVerifier [0x00007FF8E0DB6E03+41859]
+	v8::internal::compiler::Reducer::Replace [0x00007FF8E24647F2+105410]
+	v8::internal::compiler::Reducer::Replace [0x00007FF8E24648EA+105658]
+	v8::internal::ParserBase<v8::internal::Parser>::set_stack_limit [0x00007FF8E0CBCD15+865973]
+	v8::internal::ParserBase<v8::internal::Parser>::set_stack_limit [0x00007FF8E0CD30CB+957035]
+	v8::internal::ParserBase<v8::internal::Parser>::set_stack_limit [0x00007FF8E0CBC916+864950]
+	ChromeMain [0x00007FF8DF7711C3+299]
+	(No symbol) [0x00007FF643822FFA]
+	(No symbol) [0x00007FF643821698]
+	IsSandboxedProcess [0x00007FF64390B483+379779]
+	BaseThreadInitThunk [0x00007FF936EA8364+20]
+	RtlUserThreadStart [0x00007FF9372A7091+33]
+
+[0209/133947.992:ERROR:http_transport_win.cc(175)] WinHttpCrackUrl: The URL does not use a recognized protocol (0x2ee6)
