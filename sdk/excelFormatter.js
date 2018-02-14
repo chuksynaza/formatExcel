@@ -30,7 +30,7 @@ exports.myExcelFormatter = function (fileToProcess, fileName, whereToProcess, fo
 
 	errorLogSheet = workbooknew.getWorksheet('Error Log');
 
-	errorLogSheet.addRow(["What Happened", "Who Caused It", "Where Did it Happen"]);
+	errorLogSheet.addRow(["What Happened", "Who Caused It", "Where Did it Happen", "Amount"]);
 
 	formatResponse("App is running");
 
@@ -75,7 +75,7 @@ exports.myExcelFormatter = function (fileToProcess, fileName, whereToProcess, fo
 
 		delete tid_mcc;
 
-		formatResponse("computing");
+		formatResponse("crunching");
 
 		txn_report.eachRow(function(row, rowNumber) {
 
@@ -105,23 +105,15 @@ exports.myExcelFormatter = function (fileToProcess, fileName, whereToProcess, fo
 	            				thisMsc = (thisDiscount * thisAmount)/4;
 	            			}
 
-	            			outPutRow = [];
-
-	            			for(i = 1; i < row.values.length; i++) {
-	            				outPutRow.push(row.values[i]);
-	            			}
-
-	            			outPutRow.push(thisMcc);
-	            			outPutRow.push(thisMsc);
-
-	            			outPutSheet.addRow(outPutRow).commit();
-
-	            				//formatResponse(outPutRow);
+	            			
 
 	            			}
 	            			else {
 	            			//Log error that the respective MCC was not found
-	            			let outPutLog = ["MCC not found", thisMcc , "The MCC and FEES sheet"];
+	            			let outPutLog = ["MCC not found", thisMcc , "The MCC and FEES sheet", thisAmount];
+	            			thisMcc = "MCC not Found";
+	            			//thisMsc = thisAmount;
+	            			thisMsc = "";
 	            			errorLogSheet.addRow(outPutLog).commit();
 	            		}
 
@@ -129,9 +121,26 @@ exports.myExcelFormatter = function (fileToProcess, fileName, whereToProcess, fo
 	            	else {
 	            		//Log error that the TID was not found
 
-	            		let outPutLog = ["TID not found", thisTid , "The TID and MCC reference sheet"];
+	            		let outPutLog = ["TID not found", thisTid , "The TID and MCC reference sheet", thisAmount];
+	            		thisMcc = "TID not Found";
+	            		//thisMsc = thisAmount;
+	            		thisMsc = "";
 	            		errorLogSheet.addRow(outPutLog).commit();
 	            	}
+
+
+	            	outPutRow = [];
+
+	            	for(i = 1; i < row.values.length; i++) {
+	            		outPutRow.push(row.values[i]);
+	            	}
+
+	            	outPutRow.push(thisMcc);
+	            	outPutRow.push(thisMsc);
+
+	            	outPutSheet.addRow(outPutRow).commit();
+
+	            		//formatResponse(outPutRow);
 
 	            }
 	            else {

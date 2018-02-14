@@ -10,7 +10,7 @@ function formatFile(fileToProcess, fileName, whereToProcess, formatExcel){
 		else if(message == "processing"){
 			document.getElementById("statusupdate").innerHTML = "Status: Processing workbook, please wait...";
 		}
-		else if(message == "computing") {
+		else if(message == "crunching") {
 			document.getElementById("statusupdate").innerHTML = "Status: Crunching numbers...";
 		}
 		else if(message == "writing"){
