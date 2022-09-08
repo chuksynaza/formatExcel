@@ -24,6 +24,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "exceljs": "^0.8.2"
+    "exceljs": "^4.3.0"
   }
 }
